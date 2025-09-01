@@ -1,0 +1,53 @@
+% Document formatting for ELIAC Handbook
+% Colors, headers, sections, and page layout
+
+% Page geometry configuration
+\geometry{
+    a4paper,
+    left=25mm,
+    right=25mm,
+    top=30mm,
+    bottom=30mm
+}
+
+% Professional color scheme
+\definecolor{eliacblue}{RGB}{0,83,161}
+\definecolor{eliacgray}{RGB}{102,102,102}
+\definecolor{eliacred}{RGB}{204,0,0}
+
+% Headers and footers configuration
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textbf{ELIAC Competition Handbook 2026}}
+\fancyhead[R]{Version 1.0}
+\fancyfoot[C]{\thepage~/~\pageref{LastPage}}
+\fancyfoot[R]{2025-01-15}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+
+% Section formatting
+\titleformat{\section}[block]
+{\normalfont\Large\bfseries\color{eliacblue}}
+{\thesection}{1em}{}
+
+% Subsection formatting - runin style (inline)
+\titleformat{\subsection}[runin]
+{\normalfont\large\bfseries}
+{\thesubsection}{1em}{}
+
+% Subsubsection formatting - runin style (inline)
+\titleformat{\subsubsection}[runin]
+{\normalfont\normalsize\bfseries}
+{\thesubsubsection}{1em}{}
+
+% Custom numbering system with letter prefixes
+% This will be overridden per section in the main document
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+
+% Fix table of contents spacing for custom numbering
+\usepackage{tocloft}
+\setlength{\cftsecnumwidth}{2.5em}  % Width for section numbers
+\setlength{\cftsubsecnumwidth}{3.5em}  % Width for subsection numbers
+\setlength{\cftsubsubsecnumwidth}{4.5em}  % Width for subsubsection numbers

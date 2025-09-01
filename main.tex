@@ -1,0 +1,41 @@
+% ELIAC Competition Handbook 2026
+% Main Document File
+% Version 0.1
+
+\documentclass[11pt,a4paper]{article}
+
+% Load all preamble components
+\input{preamble/packages}
+\input{preamble/formatting}
+\input{preamble/metadata}
+
+\begin{document}
+
+% Front matter
+\input{frontmatter/titlepage}
+\tableofcontents
+\newpage
+\input{frontmatter/changelog}
+\input{frontmatter/abbreviations}
+\newpage
+
+% Main sections
+\input{sections/01-introduction}
+\input{sections/02-organization}
+\input{sections/03-participation}
+\input{sections/04-registration}
+\input{sections/05-event-structure}
+\input{sections/06-technical-requirements}
+\input{sections/07-evaluation}
+\input{sections/08-penalties}
+\input{sections/09-demonstrations}
+\input{sections/10-publication}
+
+% Appendices
+\appendix
+\input{appendices/A-templates}
+\input{appendices/B-glossary}
+\input{appendices/C-safety}
+
+\label{LastPage}
+\end{document}
