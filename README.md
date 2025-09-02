@@ -22,7 +22,9 @@ ELIAC is an academic competition where student teams design electron linear acce
 ## Contact
 
 **Innova Physics UPV**
+
 info@innovaphysicsupv.com
+
 www.innovaphysicsupv.com/eliac
 
 Marc Sanchis, Technical Director and ELIAC Jury – msanlli@upv.edu.es
