@@ -1,12 +1,12 @@
 % Document formatting for ELIAC Handbook
-% Colors, headers, sections, and page layout
+% Swiss-inspired design with colors, headers, sections, and page layout
 
-% Page geometry configuration
+% Page geometry configuration - Swiss asymmetric layout
 \geometry{
     a4paper,
-    left=25mm,
-    right=25mm,
-    top=30mm,
+    left=35mm,      % Larger left margin (Swiss asymmetry)
+    right=20mm,     % Smaller right margin
+    top=25mm,
     bottom=30mm
 }
 
@@ -14,44 +14,73 @@
 \definecolor{eliacblue}{RGB}{0,83,161}
 \definecolor{eliacgray}{RGB}{102,102,102}
 \definecolor{eliacred}{RGB}{204,0,0}
+\definecolor{swissred}{RGB}{255,0,0}  % Optional Swiss red accent
+
+% Font setup - Swiss style (serif body, sans headers)
+\usepackage{libertine}  % Or substitute with sabon package
+\usepackage{helvet}
+\usepackage[T1]{fontenc}
 
 % Headers and footers configuration
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\textbf{ELIAC Competition Handbook}}
-\fancyhead[R]{Version 0.3}
-\fancyfoot[C]{\thepage~/~\pageref{LastPage}}
-\fancyfoot[R]{2025.09.01}
+\fancyhead[L]{\sffamily\textbf{ELIAC Competition Handbook}}
+\fancyhead[R]{\sffamily Version 0.4}
+\fancyfoot[C]{\sffamily\thepage~/~\pageref{LastPage}}
+\fancyfoot[R]{\sffamily 2025.09.02}
 \renewcommand{\headrulewidth}{0.5pt}
 \renewcommand{\footrulewidth}{0.5pt}
 
-% Section formatting
+% Swiss grid system
+\newlength{\gridunit}
+\setlength{\gridunit}{4.5mm}  % Swiss standard grid unit
+\newcommand{\gridspace}[1]{\vspace{#1\gridunit}}
+
+% Enhanced spacing
+\setlength{\parskip}{0.8em}
+\setlength{\parindent}{0pt}  % No indent (Swiss style)
+
+% Section formatting - Sans-serif headers with enhanced spacing
 \titleformat{\section}[block]
-{\normalfont\Large\bfseries\color{eliacblue}}
+{\sffamily\Large\bfseries\color{eliacblue}}
 {\thesection}{1em}{}
+\titlespacing*{\section}{0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
 
-% Subsection formatting - runin style (inline)
-\titleformat{\subsection}[runin]
-{\normalfont\large\bfseries}
+% Subsection formatting - hang style for inline number and title
+\titleformat{\subsection}[hang]
+{\sffamily\large\bfseries}
 {\thesubsection}{1em}{}
+\titlespacing*{\subsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 
-% Subsubsection formatting - runin style (inline)
-\titleformat{\subsubsection}[runin]
-{\normalfont\normalsize\bfseries}
+% Subsubsection formatting - hang style for better readability
+\titleformat{\subsubsection}[hang]
+{\sffamily\normalsize\bfseries}
 {\thesubsubsection}{1em}{}
+\titlespacing*{\subsubsection}{0pt}{2.5ex plus 1ex minus .2ex}{0.5ex plus .2ex}
+
 \setcounter{tocdepth}{2}
 
 % Custom numbering system with letter prefixes
-% This will be overridden per section in the main document
 \renewcommand{\thesection}{\arabic{section}}
 \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
 \renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
 
 % Fix table of contents spacing for custom numbering
 \usepackage{tocloft}
-\setlength{\cftsecnumwidth}{2.5em}  % Width for section numbers
-\setlength{\cftsubsecnumwidth}{3.5em}  % Width for subsection numbers
-\setlength{\cftsubsubsecnumwidth}{4.5em}  % Width for subsubsection numbers
+\setlength{\cftsecnumwidth}{2.5em}
+\setlength{\cftsubsecnumwidth}{3.5em}
+\setlength{\cftsubsubsecnumwidth}{4.5em}
 
+% Page breaks for sections and subsections
 \usepackage{titlesec}
 \newcommand{\sectionbreak}{\clearpage}
+
+% Enhanced table styling
+\usepackage{booktabs}
+\usepackage{array}
+\renewcommand{\arraystretch}{1.3}  % More breathing room in tables
+
+% Swiss-style table environment
+\newenvironment{swisstable}[1]
+    {\begin{tabular}{@{}#1@{}}\toprule}
+    {\bottomrule\end{tabular}}
